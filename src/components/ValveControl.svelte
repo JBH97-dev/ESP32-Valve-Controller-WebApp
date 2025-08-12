@@ -1,19 +1,20 @@
 <script>
-  let { valve, systemActive, onToggle } = $props();
+  let { valve, systemActive, onToggle } = $props()
   
-  const getZoneColor = (zone) => {
+  function getZoneColor(zone) {
     switch (zone) {
-      case 'Zone A': return { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200', accent: 'bg-blue-500' };
-      case 'Zone B': return { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200', accent: 'bg-emerald-500' };
-      case 'Zone C': return { bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-200', accent: 'bg-purple-500' };
-      default: return { bg: 'bg-gray-50', text: 'text-gray-700', border: 'border-gray-200', accent: 'bg-gray-500' };
+      case 'Zone A': return { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200', accent: 'bg-blue-500' }
+      case 'Zone B': return { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200', accent: 'bg-emerald-500' }
+      case 'Zone C': return { bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-200', accent: 'bg-purple-500' }
+      default: return { bg: 'bg-gray-50', text: 'text-gray-700', border: 'border-gray-200', accent: 'bg-gray-500' }
     }
-  };
-
-  const zoneColors = $derived(getZoneColor(valve.zone));
+  }
+  
+  let zoneColors = $derived(getZoneColor(valve.zone))
 </script>
 
 <div class="group relative bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 {valve.active ? 'ring-2 ring-emerald-400/50 bg-emerald-50/30' : ''} hover:transform hover:-translate-y-1">
+  <!-- Active Indicator -->
   {#if valve.active}
     <div class="absolute top-4 right-4">
       <div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
@@ -21,7 +22,7 @@
     </div>
   {/if}
 
-    
+  <!-- Header -->
   <div class="flex items-start justify-between mb-4">
     <div class="flex-1">
       <h3 class="text-lg font-bold text-gray-900 mb-2">{valve.name}</h3>
@@ -33,7 +34,9 @@
       </div>
     </div>
     
+    <!-- Toggle Switch -->
     <button
+      aria-label={`Toggle ${valve.name}`}
       onclick={onToggle}
       disabled={!systemActive}
       class="relative inline-flex h-8 w-14 items-center rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 {valve.active ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 shadow-lg shadow-emerald-500/25' : 'bg-gray-300 hover:bg-gray-400'}"
@@ -48,7 +51,7 @@
     </button>
   </div>
   
-   Stats Grid 
+  <!-- Stats Grid -->
   <div class="grid grid-cols-2 gap-4 mb-4">
     <div class="bg-white/60 rounded-xl p-3 border border-white/40">
       <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Duration</p>
@@ -60,7 +63,7 @@
     </div>
   </div>
 
-   Status 
+  <!-- Status -->
   <div class="space-y-3">
     <div class="flex items-center justify-between text-sm">
       <span class="text-gray-600 font-medium">Status:</span>
@@ -72,6 +75,7 @@
     </div>
   </div>
   
+  <!-- Active Status Bar -->
   {#if valve.active}
     <div class="mt-4 p-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border border-emerald-200">
       <div class="flex items-center space-x-3">
