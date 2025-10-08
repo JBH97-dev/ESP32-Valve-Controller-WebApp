@@ -132,7 +132,7 @@
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center space-x-4">
           <div class="w-10 h-10  rounded-xl flex items-center justify-center shadow-lg">
-            <img src="ValveSync_Logo_only.png" alt="ValveSync Logo" class="w-48 h-auto mx-auto" />
+            <img src="static/ValveSync_Logo_only.png" alt="ValveSync Logo" class="w-48 h-auto mx-auto" />
           </div>
           <div>
             <h1 class="text-xl font-bold text-gray-900">ValveSync - Irrigation Control System</h1>

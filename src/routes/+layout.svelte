@@ -30,7 +30,7 @@
 		<div class="text-center">
 			<!-- Logo -->
 			<div class="mb-8 mx-auto">
-				<img src="ValveSync_Logo_only.png" alt="ValveSync Logo" class="w-48 h-auto mx-auto" />
+				<img src="static/ValveSync_Logo_only.png" alt="ValveSync Logo" class="w-48 h-auto mx-auto" />
 			</div>
 			
 			<!-- Title -->
