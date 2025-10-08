@@ -135,7 +135,7 @@
             <img src="static/ValveSync_Logo_only.png" alt="ValveSync Logo" class="w-48 h-auto mx-auto" />
           </div>
           <div>
-            <h1 class="text-xl font-bold text-gray-900">ValveSync - Irrigation Control System</h1>
+            <h1 class="text-xl font-bold text-gray-900">ValveSync</h1>
           </div>
         </div>
         
